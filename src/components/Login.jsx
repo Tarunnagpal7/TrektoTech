@@ -10,7 +10,7 @@ function Login(){
 
     const navigate = useNavigate()
     const dispatched = useDispatch()
-    const {register , handleSubmit} = useForm()
+    const {register , handleSubmit, formState: { errors },} = useForm()
     const [error , setError]  = useState("");
 
     const loginHandle = async(data)=>{
@@ -23,7 +23,7 @@ function Login(){
             navigate("/")
            }
         }catch(error){
-            setError(error);
+            setError(error.message);
         }
     }
 
@@ -59,6 +59,7 @@ function Login(){
                             matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
                             "Email address must be a valid address",
                         }
+                        
                       })}
                     />
                     <Input
