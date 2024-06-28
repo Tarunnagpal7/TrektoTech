@@ -14,7 +14,7 @@ function Footer() {
                                 <Logo width="100px" />
                             </div>
                             <div>
-                                <p className="text-md font-thin text-pink-200">
+                                <p className="text-sm font-thin text-pink-200">
                                     &copy; Copyright 2024. All Rights Reserved by TARUN NAGPAL.
                                 </p>
                             </div>
