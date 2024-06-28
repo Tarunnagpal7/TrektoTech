@@ -23,7 +23,7 @@ function Login(){
             navigate("/")
            }
         }catch(error){
-            setError(error.message);
+            setError("Invalid Email or Password! Try again.");
         }
     }
 
