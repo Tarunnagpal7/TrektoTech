@@ -46,8 +46,10 @@ export default function Post(){
                                 className="rounded-xl"
                                 />
             </div>
-            <div className=" text-lg text-center font-thin first-letter:text-6xl">
+            <div className=" text-sm sm:text-lg  m-5  text-center font-thin first-letter:text-6xl">
+                <p>
                 {parse(post.content)}
+                </p>
                 </div>
         </Container>
         {isAuthor && (
