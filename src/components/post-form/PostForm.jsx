@@ -75,25 +75,25 @@ export default function PostForm({post}){
                 <Input
                     label="Title :"
                     placeholder="Title"
-                    className="mb-4 "
+                    className=" "
                     {...register("title", { required: true })}
                 />
                 <Input
                     label="Slug :"
                     placeholder="Slug"
-                    className="mb-4"
+                    className=""
                     {...register("slug", { required: true })}
                     onInput={(e) => {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
-                <RTE label="Write Here" name="content" control={control} defaultValue={getValues("content")} />
+                <RTE label="Write Here : "  name="content" control={control} defaultValue={getValues("content")} />
             </div>
             <div className="w-1/3 px-2 m-3">
                 <Input
                     label="Featured Image :"
                     type="file"
-                    className="mb-4 "
+                    className=" "
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
                 />
@@ -106,13 +106,13 @@ export default function PostForm({post}){
                         />
                     </div>
                 )}
-                <Select
+                {/* <Select
                     options={["active", "inactive"]}
                     label="Status"
                     className="mb-4"
                     {...register("status", { required: true })}
-                />
-                <button type="submit" className=" inline-block rounded bg-pink-100 p-2  border-2 border-black m-5">
+                /> */}
+                <button type="submit" className=" inline-block rounded bg-pink-100 p-2  border-2 hover:bg-violet-950 hover:text-white border-black m-5">
                     {post ? "Update" : "Submit"}
                 </button>
             </div>

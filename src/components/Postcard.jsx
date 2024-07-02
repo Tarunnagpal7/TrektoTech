@@ -7,8 +7,8 @@ function Postcard({$id,title,featuredImage,content}){
 
 
         <Link to={`/post/${$id}`}>
-          <div className="w-full bg-pink-50  shadow-lg rounded-xl sm:h-96 flex flex-col sm:flex-row p-4 hover:border-2 border-black ">
-            <div className=" justify-center mb-4 p-4 sm:w-1/2 ">
+          <div className="w-full bg-pink-50  shadow-lg rounded-xl sm:h-96 flex flex-col sm:flex-row p-4 hover:border-2  ">
+            <div className=" justify-center mb-4 sm:mb-0 sm:mr-4  sm:w-1/2 ">
                   <img src={service.getFilePreview(featuredImage)} alt={title} className="rounded-xl w-full h-full  " />
             </div>
             <div>

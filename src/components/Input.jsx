@@ -13,7 +13,7 @@ export const Input = forwardRef(
         return (
                 <div className="w-full">
                     {label && 
-                    <label className="block mb-1 pl-1 " htmlFor={Id}>{label}
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 block m-1 " htmlFor={Id}>{label}
                         </label>}
 
                         <input 
@@ -24,6 +24,7 @@ export const Input = forwardRef(
                          id = {Id}
                         >
                         </input>
+                        <p class="mt-1 text-xs text-gray-500 mb-5">*This field is required</p>
                 </div>
         )
     }
