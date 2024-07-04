@@ -2,11 +2,13 @@ import {Container , Logo , LogoutBTN} from "../index"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 
 
 export const Header =()=>{
     const navigate = useNavigate();
     const authStatus = useSelector((state)=> state.auth.status)
+    const [activeItem ,setActiveItem] = useState("Home");
 
 console.log(authStatus)
     const navItems = [
@@ -45,6 +47,13 @@ console.log(authStatus)
             active : authStatus
         }
     ]
+
+    const handleClick =(slug,name)=>{
+         setActiveItem(name)
+         navigate(slug)
+    }
+
+
     return(
         <header className="sm:py-3 py-2  shadow bg-violet-950 text-white font-bold text-xs  sm:text-sm ">
             <Container>
@@ -58,9 +67,9 @@ console.log(authStatus)
                         {navItems.map((item)=>  
                            item.active ? (
                             <li key={item.name}>
-                                 <button
-                                  onClick={()=>navigate(item.slug)}
-                                  className="inline-bock sm:px-6 px-2 py-2 duration-200 hover:bg-pink-200  hover:text-violet-950 rounded-full "
+                                 <button 
+                                  onClick={()=> handleClick(item.slug,item.name)}
+                                  className={`inline-bock sm:px-6 px-2 py-2 duration-200 hover:bg-pink-200  hover:text-violet-950 rounded-full  ${activeItem === item.name ? 'bg-pink-200 text-violet-950' : ''} `}
                                  >{item.name}</button>
                             </li>
                            ) : null
