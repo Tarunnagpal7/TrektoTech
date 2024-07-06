@@ -33,7 +33,7 @@ export default function Post(){
     }
 
     return !loader? post ? (
-        <div className="py-8">
+        <div className="py-8 bg-gray-50">
         <Container>
 
             <div className="w-full mb-6 font-bold uppercase text-center">
@@ -46,7 +46,7 @@ export default function Post(){
                                 className="rounded-xl"
                                 />
             </div>
-            <div className=" text-sm sm:text-lg  m-5  text-center font-thin first-letter:text-6xl">
+            <div className=" text-sm sm:text-lg  m-5   font-thin first-letter:text-3xl">
                 <p>
                 {parse(post.content)}
                 </p>

@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux"
 import authService from "../appwrite/auth"
 import { useForm } from "react-hook-form"
 
+
 function Login(){
 
     const navigate = useNavigate()
@@ -15,13 +16,22 @@ function Login(){
 
     const loginHandle = async(data)=>{
             setError("")
-        try{
-           const session = await authService.login(data)
-           if(session){
-            const userData = await authService.getCurrentUser()
-            if(userData) dispatched(authlogin(userData));
-            navigate("/")
-           }
+            try {
+                // Attempt to log in with the provided data
+                const session = await authService.login(data);
+        
+                if (session) {
+                    // If login is successful, fetch the current user data
+                    const userData = await authService.getCurrentUser();
+        
+                    if (userData) {
+                        // Dispatch the action to set user data in the Redux store
+                        dispatched(authlogin(userData));
+                    }
+                    
+                    navigate("/");
+                    // Navigate to the home page after successful login
+                }
         }catch(error){
             setError("Invalid Email or Password! Try again.");
         }
